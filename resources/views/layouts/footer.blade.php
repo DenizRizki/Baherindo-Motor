@@ -10,10 +10,10 @@
         <div>
             <h3 class="text-xl font-semibold mb-4">Navigasi</h3>
             <ul class="space-y-2 text-gray-300 text-sm">
-                <li><a href="/" class="hover:text-yellow-400">Beranda</a></li>
-                <li><a href="/about" class="hover:text-yellow-400">Tentang Kami</a></li>
+                <li><a href="/" class="hover:text-yellow-400">Daftar Motor</a></li>
+                <li><a href="/car" class="hover:text-yellow-400">Daftar mobil</a></li>
+                <li><a href="/about" class="hover:text-yellow-400">About</a></li>
                 <li><a href="/contact" class="hover:text-yellow-400">Kontak</a></li>
-                <li><a href="#produk" class="hover:text-yellow-400">Produk</a></li>
             </ul>
         </div>
 

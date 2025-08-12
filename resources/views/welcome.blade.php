@@ -8,21 +8,39 @@
         <p class="text-lg mt-4">Jual beli motor second termurah di Bekasi</p>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        @foreach ($motor as $m)
-            <div class="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden shadow-lg text-white">
-               <img src="{{ asset('asset/harga-motor-sport-honda2.jpg') }}" alt="Motor" class="w-full h-48 object-cover">
-
+ <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    @foreach ($motor as $m)
+        <div class="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden shadow-lg text-white transform hover:-translate-y-1 hover:scale-105 transition duration-300">
+            <a href="{{ route('motor.show', $m->id) }}">
+                <img class="w-full h-56 object-cover" src="{{ asset('storage/' . $m['gambar_motor']) }}" alt="{{ $m['nama_motor'] }}">
                 <div class="p-4">
-                    <h2 class="text-xl font-semibold mb-2">{{ $m['name'] }}</h2>
-                    <p class="mb-1"><strong>Harga:</strong> {{ $m['price'] }}</p>
-                    <p class="mb-1"><strong>Tahun:</strong> {{ $m['tanggal'] }}</p>
-                    <p class="pb-3"><strong>KM:</strong> {{ $m['kilometer'] }}</p>
-                     <a href="/contact" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-full transition duration-300 shadow-md">
-            BELI
-        </a>
+                    <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
+                        <i class="bi bi-bicycle text-yellow-400"></i> {{ $m['nama_motor'] }}
+                    </h2>
+                  <p class="mb-2 flex items-center gap-2">
+    <i class="bi bi-cash-stack text-green-400"></i>
+    <strong>Harga:</strong> {{ number_format($m['harga_motor'], 0, ',', '.') }}
+</p>
+<p class="mb-2 flex items-center gap-2">
+    <i class="bi bi-calendar text-blue-400"></i>
+    <strong>Tahun:</strong> {{ $m['tahun_motor'] }}
+</p>
+<p class="mb-4 flex items-center gap-2">
+    <i class="bi bi-speedometer2 text-red-400"></i>
+    <strong>KM:</strong> {{ number_format($m['km_motor'], 0, ',', '.') }}
+</p>
+
+                    
+                    {{-- Tombol WhatsApp --}}
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20{{ urlencode($m['nama_motor']) }}" 
+                       target="_blank"
+                       class="inline-flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-400 text-white font-semibold px-6 py-3 rounded-full transition duration-300 shadow-md">
+                        <i class="bi bi-whatsapp"></i> Order via WhatsApp
+                    </a>
                 </div>
-            </div>
-        @endforeach
-    </div>
+            </a>
+        </div>
+    @endforeach
+</div>
+
 @endsection
